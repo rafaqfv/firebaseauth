@@ -11,11 +11,15 @@
         android:id="@+id/editSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Senha"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cadastroBtn"
         app:layout_constraintEnd_toEndOf="@+id/editEmail"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/editEmail"
         app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
@@ -23,20 +27,29 @@
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_edittext"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/editSenha"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/cadastroBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Criar conta"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button"
+        android:text="Criar conta"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="@+id/editSenha"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/editSenha"
         app:layout_constraintTop_toBottomOf="@+id/editSenha" />
 
@@ -45,11 +58,14 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:indeterminateTint="#00b7fc"
         android:visibility="gone"
-        tools:visibility="visible"
-        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastroBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastroBtn"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

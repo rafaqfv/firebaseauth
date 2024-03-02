@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -13,10 +15,18 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        new Handler(getMainLooper()).postDelayed(() -> {
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }, 3000);
+        new Handler(getMainLooper()).postDelayed(this::verificaLogin, 3000);
+    }
 
+    private void verificaLogin() {
+        finish();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            new Handler(getMainLooper()).postDelayed(() -> {
+                finish();
+                startActivity(new Intent(this, LoginActivity.class));
+            }, 3000);
+        }
     }
 }
