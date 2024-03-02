@@ -40,14 +40,14 @@ public class RecuperaContaActivity extends AppCompatActivity {
 
     private void recuperaConta(String email) {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(this, "Verifique o seu email", Toast.LENGTH_SHORT).show();
-            } else {
+            if (!task.isSuccessful()) {
                 Toast.makeText(this, "Ocorreu um erro.", Toast.LENGTH_SHORT).show();
                 binding.progressBar.setVisibility(View.GONE);
+                return;
             }
+
+            Toast.makeText(this, "Verifique o seu email", Toast.LENGTH_SHORT).show();
             binding.progressBar.setVisibility(View.GONE);
         });
     }
-
 }
